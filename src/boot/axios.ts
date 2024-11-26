@@ -9,9 +9,9 @@ declare module 'vue' {
 }
 
 
-const auth = Buffer.from(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64');
+const auth = btoa(`${process.env.USER}:${process.env.PASSWORD}`);
 const api = axios.create({
-  baseURL: 'https://api.pakketdienstqls.nl/',
+  baseURL: process.env.BASE_URL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',

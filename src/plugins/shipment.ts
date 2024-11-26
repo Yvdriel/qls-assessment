@@ -26,7 +26,7 @@ const createShipment = ({
   product_combination_id: number;
 }) => {
   const payload = {
-    brand_id: 'e41c8d26-bdfd-4999-9086-e5939d67ae28',
+    brand_id: process.env.BRAND_ID,
     reference: order.number,
     weight: 1000,
     product_id,
@@ -58,4 +58,17 @@ const createShipment = ({
     });
 };
 
-export { createShipment };
+const getProducts = () => {
+  api
+    .get(
+      `${process.env.BASE_URL}/company/${process.env.COMPANY_ID}/products`
+    )
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+export { createShipment, getProducts };
