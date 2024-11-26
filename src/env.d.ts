@@ -8,5 +8,7 @@ declare namespace NodeJS {
     USERNAME: string;
     PASSWORD: string;
     BASE_URL: string;
+    COMPANY_ID: string;
+    BRAND_ID: string;
   }
 }
